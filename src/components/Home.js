@@ -23,3 +23,14 @@ const Home = () => {
           <h3 style={{color: "red"}}>Recent Books:</h3>
           {recentBooks.map((Book) => (
             <p key={Book.id}>{Book.title}</p>
+            ))}
+            <div style={{ margin: "1rem 0" }}>
+              <Link style={{color: "red"}} className="button" to="/books">
+                Click Me to View Books
+              </Link>
+            </div>
+          </section>
+        );
+      };
+      
+      export default Home;
