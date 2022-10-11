@@ -10,3 +10,36 @@ function BookListItem({Book, onDeleteBook}) {
    })
    onDeleteBook(id)
   }
+  return (
+    <li>
+        <a href="/Books/1">
+            <figure className='image'>
+                <img src ={image}
+                alt="Vrienden voor het leven"/>
+     
+            </figure>
+            </a>
+      <section className="details">
+     <h3 >{title}</h3>
+     <p>
+     {summary} 
+     </p>
+     <p >Author: {author}</p>
+     <p>Price {price}</p>
+     
+      </section>
+      <footer className='extra'>
+        <button style={{color: "darkkhaki"}} >
+           {category}
+        </button>
+        <button style={{color: "darkkhaki"}} onClick={handleDeleteClick}>
+           Delete
+           
+          </button>
+      </footer>
+
+    </li>
+  )
+}
+
+export default BookListItem;
