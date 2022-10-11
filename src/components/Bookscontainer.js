@@ -20,3 +20,49 @@ function BooksContainer() {
          }
 
 
+
+         useEffect(()=>{
+    
+            let url;
+            if (selectedCategory && searchQuery){
+              url=`https://rehtse-library.herokuapp.com/books?category=${selectedCategory}&q=${encodeURI(searchQuery)}`
+            }else if(searchQuery){
+              url=`https://rehtse-library.herokuapp.com/books?q=${encodeURI(searchQuery)}`
+            }else if(selectedCategory){
+            url=`https://rehtse-library.herokuapp.com/books?category=${selectedCategory}`
+            } else {
+              url="https://rehtse-library.herokuapp.com/books"
+            }
+            fetch(url)
+            .then((res)=>res.json())
+            .then((Books)=>setBooks(Books))
+          },[selectedCategory,searchQuery])
+    
+      return (
+        <>
+        <Switch>
+           <Route  path ='/books'>
+           
+            <BookList 
+            Books={Books}
+            onDeleteBook={onDeleteBook}
+            setSelectedCategory={setSelectedCategory}
+             searchQuery={searchQuery}
+             setSearchQuery={setSearchQuery}
+            />
+            </Route>
+    
+          
+           <BookForm
+            onAddBook={onAddBook}
+            />
+           
+           
+          
+         
+        </Switch>
+        </>
+      )
+    }
+    
+    export default BooksContainer
