@@ -23,3 +23,13 @@ return (
       <NavLink  className='button' to ="/books/new">
         Add Books
       </NavLink>
+      
+      <button style={{color: "white"}} onClick={handleToggleDarkModeClick}>{isDarkMode? "Darker Mode":"Lighter Mode"}</button>
+        </div>
+        </nav>
+    </header>
+   
+  )
+}
+
+export default Header
