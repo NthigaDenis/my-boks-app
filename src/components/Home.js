@@ -14,3 +14,12 @@ const Home = () => {
           setRecentBooks(recentBooks);
         });
     }, []);
+    return (
+        <section className="box">
+          <h2 style={{ fontSize: "2rem" }}>Keep Track Of Your Favorite Books</h2>
+          <p>
+            Organize Your Books Using Their Categories.
+          </p>
+          <h3 style={{color: "red"}}>Recent Books:</h3>
+          {recentBooks.map((Book) => (
+            <p key={Book.id}>{Book.title}</p>
